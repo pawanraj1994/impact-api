@@ -1,9 +1,9 @@
 services:
   - type: web
     name: impact-api
-    env: python
-    region: oregon
+    runtime: python3
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+
 
